@@ -13,6 +13,7 @@ import YouTube from "react-youtube";
 import Poster from "../components/Poster";
 import Video from "../components/Video";
 import PaginatedItems from "../components/PaginatedItems";
+import Footer from "../components/Footer";
 
 function Home() {
   const opts = {
@@ -40,13 +41,16 @@ function Home() {
 
   let inlet = "no";
   function popHandler(inlet) {
-    dispatch(getPop(inlet));
+    // dispatch(getPop(inlet));
     console.log(inlet);
   }
-  function trendHandler(inlet) {
-    dispatch(gettrend(inlet));
+  function trendHandler(movie) {
+    dispatch(gettrend(movie));
     console.log(inlet);
   }
+  useEffect(() => {
+    dispatch(gettrend("movie"));
+  }, []);
   function genreHandler(inlet) {
     console.log(inlet);
     const index = allGenres.findIndex((genre) => genre.name == inlet);
@@ -57,46 +61,44 @@ function Home() {
 
   const ggg = allGenres.map((genre) => genre.name);
 
-  console.log(ggg);
-
   console.log(popMovie);
   return (
-    <div className="relative">
-      <Header />
-      <Poster />
-      <ContentContainer
-        filmData={popMovie}
-        func={popHandler}
-        value={{
-          title: "What's Popular",
-          options: ["movie", "tv"],
-        }}
-      />
+    <div className="relative w-full ">
+      <div className=" w-full fixed z-20">
+        <Header />
+      </div>
 
-      <ContentContainer
-        filmData={topMovie}
-        value={{
-          title: "Top Of History",
-          options: ["hollywood", "ballywood", "250 best", "Iran"],
-        }}
-      />
-      <ContentContainer
-        func={trendHandler}
-        filmData={trendMovie}
-        value={{
-          title: "What's trend",
-          options: ["all", "tv", "movie"],
-        }}
-      />
-      {/* <div className="flex items-center px-2 justify-center mb-[300px]">
-        <YouTube videoId="sBEvEcpnG7k" opts={opts} />
-      </div> */}
-      <Video />
-      {/* <div className=" absolute  top-0 bottom-0 w-full  bg-[#032541f2] z-50  ">
-        <div className="flex items-center px-2 justify-center mb-[300px] sticky top-1/2  bottom-0">
-          <YouTube videoId="sBEvEcpnG7k" opts={opts} />
-        </div>
-      </div> */}
+      <main className="max-w-[1500px] mx-auto ">
+        <Poster />
+        <ContentContainer
+          filmData={popMovie}
+          func={popHandler}
+          value={{
+            title: "What's Popular",
+            options: ["movie", "tv"],
+          }}
+        />
+
+        <ContentContainer
+          filmData={topMovie}
+          value={{
+            title: "Top Of History",
+            options: ["hollywood", "ballywood", "250 best", "Iran"],
+          }}
+        />
+        <ContentContainer
+          func={trendHandler}
+          filmData={trendMovie}
+          value={{
+            title: "What's trend",
+            options: ["movie", "tv", "all"],
+          }}
+        />
+
+        <Video />
+      </main>
+
+      <Footer />
     </div>
   );
 }

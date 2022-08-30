@@ -8,15 +8,15 @@ function Select({ slectionInfo, func }) {
 
   return (
     <div>
-      <div className="flex items-start ">
-        <h1 className="text-[22px] font-bold">{slectionInfo.title}</h1>
-        <div className="absolute left-36  ">
+      <div className="flex items-center w-full ml-4 pr-16">
+        <h1 className="text-[22px] font-bold ">{slectionInfo.title}</h1>
+        <div className="absolute top-0 left-36">
           <div
-            className={`bg-[#032541]  text-white ${
+            className={`cursor-pointer bg-[#032541]  text-white ${
               hide ? "hidden" : "flex"
             }   items-center border-[1px] py-1 ml-10 rounded-full h-auto`}
           >
-            <h1 className="pl-5 text-[1.2em] pr-2 font-semibold">
+            <h1 className="pl-5 text-[1.2em] pr-2 font-semibold ">
               {selection}
             </h1>
             <span className={` text-[25px] pr-5 `}>

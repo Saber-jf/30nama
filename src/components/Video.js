@@ -33,15 +33,15 @@ function Video() {
   const videoUrl = useSelector((state) => state.trailer.videoUrl);
   console.log(videoUrl);
   return (
-    <div className="">
-      <div className="w-full h-[380px] mb-[400px] relative  ">
+    <div className=" mt-8  ">
+      <div className="w-full h-[380px] relative ">
         <div className="w-full h-full ">
-          <div className="w-full h-full ">
+          <div className="w-full h-full  ">
             <img className="w-full h-full object-cover " src={got} />
           </div>
-          <div className="w-full h-full absolute top-0 left-0 poster">
-            <div className="ml-8">
-              <div className=" relative z-10 mt-6  ">
+          <div className="w-full h-full absolute top-0 left-0 poster pt-10 ">
+            <div className="">
+              <div className="relative z-10  text-white mt-6 w-2/3">
                 <Select
                   slectionInfo={{
                     title: "Latest Trailers",
@@ -49,11 +49,20 @@ function Video() {
                   }}
                 />
               </div>
-              <div className="mt-8">
+              <div className=" mx-2  mt-8">
                 <Swiper
+                  breakpoints={{
+                    300: {
+                      // width: 576,
+                      slidesPerView: 2.5,
+                    },
+                    768: {
+                      // width: 768,
+                      slidesPerView: 4.3,
+                    },
+                  }}
                   scrollbar={true}
                   loop={true}
-                  slidesPerView={1.5}
                   spaceBetween={15}
                   pagination={{
                     clickable: true,
@@ -97,7 +106,7 @@ function Video() {
         onClick={() => setIsShown(!isShown)}
         className={` ${
           isShown ? "block" : "hidden"
-        } fixed overflow-hidden top-0 bottom-0 right-0 left-0   bg-[#032541f2] z-50 `}
+        } fixed overflow-hidden top-0 bottom-0 right-0 left-0  bg-[#032541f2] z-50 `}
       >
         <div className="flex flex-col items-center px-2 justify-center mb-[300px] fixed top-1/2 left-[calc(0.5_*(100vw_-_370px))]  bottom-0">
           <YouTube videoId={isShown ? videoUrl : ""} opts={opts} />

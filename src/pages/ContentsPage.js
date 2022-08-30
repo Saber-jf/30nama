@@ -7,6 +7,7 @@ import { getTheGenre } from "../redux/Slices/genreSlice";
 import Header from "../components/header/Header";
 import PaginatedItems from "../components/PaginatedItems";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 function ContentsPage() {
   const { genre, id } = useParams();
@@ -14,7 +15,7 @@ function ContentsPage() {
 
   useEffect(() => {
     dispatch(getTheGenre({ page: 1, id: id }));
-  }, []);
+  }, [id]);
 
   function nextPage(page) {
     console.log(page);
@@ -30,9 +31,10 @@ function ContentsPage() {
       <div className="bg-gray-100 py-10">
         <SubContent typeName={Genre.results} />
       </div>
-      <div className="flex justify-center pb-10">
+      <div className="flex justify-center pb-10 w-full ">
         <PaginatedItems NumberOfPage={Genre.total_pages} func={nextPage} />
       </div>
+      <Footer />
     </>
   );
 }

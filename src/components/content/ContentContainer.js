@@ -4,9 +4,9 @@ import Select from "./Select";
 
 function ContentContainer({ value, filmData, func }) {
   return (
-    <div className="">
-      <div className="w-full ml-5 mt-10 z-10  ">
-        <div className=" relative z-10  ">
+    <div className="w-full md:w-full mx-auto">
+      <div className="w-full mt-10 z-10">
+        <div className=" w-[90%] relative z-10">
           <Select slectionInfo={value} func={func} />
         </div>
         <div className="mt-10">

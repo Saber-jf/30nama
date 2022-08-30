@@ -10,24 +10,22 @@ function PaginatedItems({ NumberOfPage, func }) {
   //   [currentPage]
   // );
   return (
-    <div className="flex justify-center  un max-w-[800px] mt-8  ">
+    <div className="flex justify-center bg-gray-100 px-8 rounded-full border-gray-600    mt-8  ">
       <ReactPaginate
-        previousLabel={"<<<<  "}
-        nextLabel={"   >>>>"}
-        breakLabel={". . . . . ."}
+        previousLabel={"<<<  "}
+        nextLabel={"   >>>"}
+        breakLabel={".   .   .   .  ."}
         pageCount={500}
-        marginPagesDisplayed={3}
+        marginPagesDisplayed={2}
         // pageRangeDisplayed={2}
         onPageChange={(data) => func(data.selected + 1)}
-        containerClassName={"flex p-2 items-center jus w-full gap-1 "}
-        pageClassName=" bg-blue-300 px-2 border-2 borde  "
-        activeClassName={
-          "text-black text-[20px]  bg-blue-600 font-bold underline bg-red-400 "
-        }
-        nextClassName={"p-2 border-2"}
-        previousClassName={"p-2 border-2"}
-        pageLinkClassName={"   text-green-4"}
-        forcePage={4}
+        containerClassName={"flex p-4 items-center jus w-full gap-4"}
+        pageClassName=" bg-blue-200 px-4 border-2 rounded-full"
+        activeClassName={"text-black text-[23px] font-bold  bg-blue-400  "}
+        nextClassName={"px-2 border-2 border-gray-300 rounded-r-full "}
+        previousClassName={"px-2 border-2 border-gray-300 rounded-l-full "}
+        pageLinkClassName={"text-green-4"}
+        forcePage={0}
       />
     </div>
   );

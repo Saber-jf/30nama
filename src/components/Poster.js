@@ -7,12 +7,15 @@ function Poster() {
   console.log(searchkey);
   return (
     <div>
-      <div className="relative">
+      <div className="relative mx-auto ">
         <div className="w-full">
-          <img src={got} className="h-[450px] w-full object-cover    " />
+          <img
+            src={got}
+            className="h-[450px] md:h-[700px] w-full object-cover"
+          />
         </div>
-        <div className=" top-0 bottom-0 right-0 absolute poster w-full ">
-          <div className="flex flex-col items-start justify-end px-5 w-full h-full">
+        <div className=" top-0 bottom-0 right-0 absolute poster w-full  ">
+          <div className="flex flex-col items-start justify-end px-5 w-full h-full max-w-[1000px] ">
             <h1 className="text-[3rem] font-bold text-white">WelCome.</h1>
             <p className="text-[2em] font-semibold text-white  ">
               Millions of movies, TV shows and people to discover. Explore now.

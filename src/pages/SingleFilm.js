@@ -8,6 +8,7 @@ import Rating from "../components/Rating";
 import { BsFillPlayFill } from "react-icons/bs";
 import { getCast } from "../redux/Slices/singleFilmSlice";
 import SmallSlider from "../components/SmallSlider";
+import Footer from "../components/Footer";
 
 function SingleFilm() {
   const { id } = useParams();
@@ -25,8 +26,8 @@ function SingleFilm() {
   return (
     <>
       <Header />
-      <>
-        <div className="w-full relative">
+      <div className="max-w-[1500px] mx-auto ">
+        <div className="w-full relative ">
           <div className=" w-full ">
             <img
               className="w-full h-full object-cover "
@@ -44,9 +45,6 @@ function SingleFilm() {
         <div className="flex flex-col items-center justify-center w-full bg-[#C8DDDD]">
           <div className="my-6 flex items-center   ">
             <h1 className="name">{theFilm.original_title}</h1>
-            {/* <span className=" ml-2 text-[1em] font-semibold text-[#4a5058] ">
-            ({theFilm.release_date.substr(0, 4)})
-          </span> */}
           </div>
           <div className="flex justify-between items-center w-3/4 divide-x-2 mb-5  ">
             <div className="flex items-center flex-1">
@@ -78,14 +76,15 @@ function SingleFilm() {
             <div className="w-full text-start  my-4 text-[1.1rem] font-normal text-[#4a5058]  ">
               <span>{theFilm.tagline}</span>
             </div>
-            <div className="w-full text-start">
+            <div className="w-full text-start pb-10 md:text-[20px]">
               <h1 className="mb-4 text-[1.3rem] font-semibold  ">Overview</h1>
               <p>{theFilm.overview}</p>
             </div>
           </div>
         </div>
         <SmallSlider value={casts} />
-      </>
+      </div>
+      <Footer />
     </>
   );
 }
