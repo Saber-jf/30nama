@@ -37,8 +37,9 @@ function SmallSlider({ value }) {
           (cast) =>
             cast.profile_path && (
               <SwiperSlide>
-                <div className="border-2 shadow-xl rounded-2xl overflow-hidden ">
+                <div className=" rounded-2xl overflow-hidden ">
                   <img
+                    className="rounded-2xl"
                     src={`http://image.tmdb.org/t/p/w1280${cast.profile_path}`}
                   />
                   <div className="px-4 py-6 text-[14px] md:text-[18px] ">
