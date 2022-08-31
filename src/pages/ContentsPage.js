@@ -27,8 +27,11 @@ function ContentsPage() {
   console.log();
   return (
     <>
-      <Header />
-      <div className="bg-gray-100 py-10">
+      <div className="fixed z-40 w-full mx-auto">
+        <Header />
+      </div>
+
+      <div className="bg-gray-100 py-28">
         <SubContent typeName={Genre.results} />
       </div>
       <div className="flex justify-center pb-10 w-full ">
